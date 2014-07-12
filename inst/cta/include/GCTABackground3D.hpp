@@ -68,8 +68,11 @@ public:
                                   const GTime& time,
                                   GRan& ran) const;
     const GModelSpectralNodes& spectrum(void) const;
+    void                       write(GFitsBinTable& hdu) const;
+    void                       save(const std::string& filename,
+				    const bool& clobber) const;
     std::string                print(const GChatter& chatter = NORMAL) const;
-
+  
     // Methods
     void   read(const GFits& file);
     double mc_spatial_resolution(void) const;
