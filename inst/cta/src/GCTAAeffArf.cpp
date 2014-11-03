@@ -252,17 +252,6 @@ void GCTAAeffArf::load(const std::string& filename)
 
     // Get ARF table
     const GFitsTable& table = *file.table("SPECRESP");
-    GFitsHeader header = table.header();
-
-    // Read low energy threshold
-    if (header.contains("LO_THRES")){
-      double m_lo_thres = std::stod(header["LO_THRES"]);
-    }
-    
-    // Read high energy threshold
-    if (header.contains("HI_THRES")){
-      double m_hi_thres = std::stod(header["HI_THRES"]);
-    }
 
     // Read ARF
     read(table);
@@ -363,6 +352,60 @@ void GCTAAeffArf::read(const GFitsTable& hdu)
     return;
 }
 
+/***********************************************************************//**
+ * @brief Write CTA effective area table into FITS binary table object.
+ *
+ * @param[in] hdu FITS binary table.
+ *
+ * Note that the energies are stored in TeV and the effective areas are 
+ * stored in m2.
+ ***************************************************************************/
+// void GCTAAeffArf::write(GFitsBinTable& hdu) const
+// {
+//     // Set number of rows
+//     int num = m_logE.size();
+
+//     // Create columns
+//     GFitsTableDoubleCol energy_lo = GFitsTableDoubleCol("ENERG_LO", num);
+//     GFitsTableDoubleCol energy_hi = GFitsTableDoubleCol("ENERG_HI", num);
+//     GFitsTableDoubleCol specresp  = GFitsTableDoubleCol("SPECRESP", num);
+
+//     // Fill columns
+//     for (int i =0; i< num-1; ++i){
+//       dlogE = m_logE[i+1] - m_logE[i];
+//       energy_lo(i) = std::pow(10, m_logE[i]-dlogE);
+//       energy_hi(i) = std::pow(10, m_logE[i]+dlogE);
+//     // Write Aeff column
+    
+//     // Return
+//     return;
+// }
+
+/***********************************************************************//**
+ * @brief Save effectiva area table into FITS file
+ *
+ * @param[in] filename Effective area table FITS file name.
+ * @param[in] clobber Overwrite existing file? (true=yes)
+ *
+ * Save the effectiva area table into a FITS file.
+ ***************************************************************************/
+// void GCTAAeffArf::save(const std::string& filename, const bool& clobber) const
+// {
+//     // Create binary table
+//     GFitsBinTable table;
+//     table.extname("EFFECTIVE AREA");
+
+//     // Write the Effective area table
+//     write(table);
+
+//     // Create FITS file, append table, and write into the file
+//     GFits fits;
+//     fits.append(table);
+//     fits.saveto(filename, clobber);
+
+//     // Return
+//     return;
+// }
 
 /***********************************************************************//**
  * @brief Remove thetacut

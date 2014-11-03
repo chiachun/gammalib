@@ -81,6 +81,9 @@ public:
     void          scale(const double& scale);
     const double& scale(void) const;
     void          read(const GFitsTable& hdu);
+    // void          write(GFitsBinTable& hdu) const;
+    // void          save(const std::string& filename,
+    // 		       const bool& clobber = false) const;
     void          remove_thetacut(const GCTAResponseIrf& rsp);
     
 private:

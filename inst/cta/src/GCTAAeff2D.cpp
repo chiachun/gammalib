@@ -266,7 +266,7 @@ void GCTAAeff2D::load(const std::string& filename)
  ***************************************************************************/
 void GCTAAeff2D::write(GFitsBinTable& hdu) const
 {
-    // Write background table
+    // Write effective area table
     m_aeff.write(hdu);
 
     // Return

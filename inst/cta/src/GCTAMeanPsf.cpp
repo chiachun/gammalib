@@ -287,6 +287,40 @@ GCTAMeanPsf* GCTAMeanPsf::clone(void) const
     return new GCTAMeanPsf(*this);
 }
 
+/***********************************************************************//**
+ * @brief Return containmnet radius in units of deg
+ * @param[in] percent percentage of containment
+ *
+ * @return containment radius (deg).
+ ***************************************************************************/
+double GCTAMeanPsf::ctr(GSkyDir& dir, GEnergy& energy, double& percent) const
+{   
+    double ctr = 0;
+
+    // // Use delta bins to sample psf
+    // double sum = 0;
+    // int iebin = m_ebounds.index(energy);
+    // for (int idelta = 0 ; i < m_deltas.size()-1 ; ++i){
+
+    //   // Get delta value
+    //   double delta =  m_deltas.at(i);
+    //   #if defined(G_SQRT_BINNING)
+    //   delta = delta * delta;
+    //   #endif
+    //   // Get delta
+    //   delta = delta * gammalib::deg2rad;
+    //   int offset = offset(idelta, iebin);
+     
+    //   double psf = m_cube(dir, offset) * std::sin(delta);
+
+     
+      
+    //   //sum = sum + (dir, delta, energy)//*std::sin(delta);
+    // }
+
+    // // Return
+    return ctr;
+}
 
 /***********************************************************************//**
  * @brief Set PSF cube from one CTA observation

@@ -76,4 +76,14 @@ public:
 * @brief GCTAModelCubeBackground class extension
 ***************************************************************************/
 %extend GCTAModelCubeBackground {
+  GCTAModelCubeBackground(GModelData* model) {
+        GCTAModelCubeBackground* ptr = dynamic_cast<GCTAModelCubeBackground*>(model);
+        if (ptr != NULL) {
+            return (ptr->clone());
+        }
+        else {
+            throw GException::bad_type("GCTAModelCubeBackground(GModelData*)",
+                                       "GModelData not of type GCTAModelCubeBackground");
+        }
+    }
 };

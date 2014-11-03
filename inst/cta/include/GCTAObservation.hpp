@@ -109,6 +109,7 @@ public:
     void                deadc(const double& deadc);
     void                eventfile(const std::string& filename);
     const std::string&  eventfile(void) const;
+    const std::string&  bgdfile(void) const;
 
 protected:
     // Protected methods
@@ -360,6 +361,17 @@ inline
 const std::string& GCTAObservation::eventfile(void) const
 {
     return m_eventfile;
+}
+
+/***********************************************************************//**
+ * @brief Return background file name
+ *
+ * @return background file name.
+ ***************************************************************************/
+inline
+const std::string& GCTAObservation::bgdfile(void) const
+{
+    return m_bgdfile;
 }
 
 #endif /* GCTAOBSERVATION_HPP */

@@ -84,6 +84,7 @@ public:
     const GNodeArray&  deltas(void) const;
     const GNodeArray&  elogmeans(void) const;
     double             delta_max(void) const;
+    double             ctr(GSkyDir& dir, GEnergy& energy, double& percent) const;
     int                offset(const int& idelta, const int& iebin) const;
     void               read(const GFits& fits);
     void               write(GFits& file) const;

@@ -98,6 +98,7 @@ public:
     void                deadc(const double& deadc);
     void                eventfile(const std::string& filename);
     const std::string&  eventfile(void) const;
+    const std::string&  bgdfile(void) const;
 };
 
 
